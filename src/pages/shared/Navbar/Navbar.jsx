@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import user from "../../../assets/user.png"
 
 const Navbar = () => {
@@ -6,6 +6,7 @@ const Navbar = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
         <li><NavLink to="/career">Career</NavLink></li>
+        <li><NavLink to="/login">Login</NavLink></li>
     </>
     return (
         <div className="mb-16 navbar bg-base-100">
@@ -45,7 +46,7 @@ const Navbar = () => {
                             src={user} />
                     </div>
                 </div>
-                <button className="btn bg-[#403F3F] text-white">Login</button>
+                <Link to="/login"><button className="btn bg-[#403F3F] text-white">Login</button></Link>
             </div>
         </div>
     );
