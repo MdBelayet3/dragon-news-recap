@@ -29,9 +29,9 @@ const Home = () => {
                     <LeftSideNavbar></LeftSideNavbar>
                 </div>
                 <div className="col-span-2">
-                    <h2 className="text-xl font-semibold">Dragon News Home : {allNews.length}</h2>
-                    <div>
-                        {allNews.slice(0,4).map((news,idx) => <NewsContainer key={idx} news={news}></NewsContainer>)}
+                    <h2 className="text-xl font-semibold mb-6">Dragon News</h2>
+                    <div className="space-y-8 ">
+                        {allNews.map((news,idx) => <NewsContainer key={idx} news={news}></NewsContainer>)}
                     </div>
                 </div>
                 <div className="">

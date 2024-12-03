@@ -1,25 +1,14 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import { CiBookmark, CiShare2 } from "react-icons/ci";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 const NewsContainer = ({ news }) => {
     const details = news.details;
 
-    const [isSeeMore, setIsSeeMore] = useState(false);
-    let [newsDetailsLength, setNewsDetailsLength] = useState(100);
-
-    console.log(news)
-    const handleSeeMoreOrLess = () => {
-        setNewsDetailsLength(100);
-        setIsSeeMore(!isSeeMore);
-        if(isSeeMore){
-            setNewsDetailsLength(details.length)
-        }
-    }
 
     return (
-        <div className='space-y-5 border p-5'>
+        <div className='space-y-5 border-2 p-5 rounded-xl shadow-xl'>
             <div className='bg-[#F3F3F3] rounded-xl p-4 flex justify-between items-center'>
                 <div className='flex items-center gap-5'>
                     <img className='w-16 h-16 rounded-full' src={news?.author?.img} alt="Author image" />
@@ -33,13 +22,11 @@ const NewsContainer = ({ news }) => {
             <h1 className='text-xl font-bold'>{news?.title}</h1>
             <img src={news?.image_url} alt="" />
             <div>
-                <p>{details.slice(0, newsDetailsLength)}
-                    <span onClick={handleSeeMoreOrLess} className='hover:cursor-pointer ml-4 hover:text-xl text-[#FF8C47]'>
-                        {
-                            isSeeMore ? "See Less" : "See More"
-                        }
-                    </span>
-                </p>
+                {
+                    details.length >= 200 
+                    ? <p>{details.slice(0,200)} <Link to="" className="text-blue-600 text-xl font-bold">Reed More...</Link></p>
+                    : <p>{details}</p>
+                }
             </div>
             <hr />
             <div className='flex justify-between'>
