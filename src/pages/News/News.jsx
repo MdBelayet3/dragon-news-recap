@@ -14,7 +14,7 @@ const News = () => {
         <div>
             <Header></Header>
             <Navbar></Navbar>
-            <div className="grid grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-4 gap-8">
                 <div className="col-span-3">
                     <div className=" space-y-5 p-5 border-2 rounded-2xl">
                         <h2 className="text-xl">Dragon News</h2>
