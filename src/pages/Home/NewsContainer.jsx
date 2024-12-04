@@ -24,7 +24,7 @@ const NewsContainer = ({ news }) => {
             <div>
                 {
                     details.length >= 200 
-                    ? <p>{details.slice(0,200)} <Link to="" className="text-blue-600 text-xl font-bold">Reed More...</Link></p>
+                    ? <p>{details.slice(0,200)} <Link to={`/news/${news._id}`} className="text-blue-600 text-xl font-bold">Reed More...</Link></p>
                     : <p>{details}</p>
                 }
             </div>

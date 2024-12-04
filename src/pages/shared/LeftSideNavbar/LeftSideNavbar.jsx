@@ -36,7 +36,7 @@ const LeftSideNavbar = () => {
                 </div>
             </div>
             <div className="space-y-5 my-8">
-                {allNews.slice(0,6).map((news,idx) => <News key={idx} news={news}></News>)}
+                {allNews.slice(3,9).map((news,idx) => <News key={idx} news={news}></News>)}
             </div>
         </div>
     );

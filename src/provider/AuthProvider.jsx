@@ -7,19 +7,23 @@ import auth from '../firebase/firebase.config'
 const AuthProvider = ({children}) => {
     //use state
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     // create user function
     const createUser = (email,password) =>{
+        setLoading(true);
         return createUserWithEmailAndPassword(auth,email,password);
     }
 
     // sign In  function
     const signIn = (email,password) =>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth,email,password)
     }
 
     // Sign Out function
     const logout = () =>{
+        setLoading(true);
         return signOut(auth);
     }
 
@@ -28,6 +32,7 @@ const AuthProvider = ({children}) => {
         const unSubscribe = onAuthStateChanged(auth, currentUser =>{
             console.log('user is the auth state change', currentUser);
             setUser(currentUser);
+            setLoading(false);
         })
         return () =>{
             unSubscribe();
@@ -37,6 +42,7 @@ const AuthProvider = ({children}) => {
     // provider value
     const authInfo = {
         user,
+        loading,
         createUser,
         signIn,
         logout,
